@@ -1,0 +1,356 @@
+<title>GEO-TRACE 利用規約</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&family=Noto+Sans+JP:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+  :root {
+    --bg: #f6f4f1;
+    --surface: #ffffff;
+    --surface-2: #f2ede6;
+    --border: rgba(41, 30, 15, 0.11);
+    --text: #1c1712;
+    --text-muted: #6b6259;
+    --accent: #b45309;
+    --accent-soft: rgba(246, 173, 85, 0.18);
+    --accent-ink: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1a1e24;
+      --surface: #20252c;
+      --surface-2: #262c34;
+      --border: rgba(148, 163, 184, 0.14);
+      --text: #e7eaf0;
+      --text-muted: #8b95a7;
+      --accent: #f6ad55;
+      --accent-soft: rgba(246, 173, 85, 0.16);
+      --accent-ink: #241605;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1a1e24;
+    --surface: #20252c;
+    --surface-2: #262c34;
+    --border: rgba(148, 163, 184, 0.14);
+    --text: #e7eaf0;
+    --text-muted: #8b95a7;
+    --accent: #f6ad55;
+    --accent-soft: rgba(246, 173, 85, 0.16);
+    --accent-ink: #241605;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.85;
+    font-size: 15.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-family: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+    text-wrap: balance;
+    color: var(--text);
+    margin: 0;
+  }
+  a { color: var(--accent); }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+  .bar__dot { width: 8px; height: 8px; border-radius: 999px; background: var(--accent); flex: none; }
+  .bar__label { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 12px; letter-spacing: 0.14em; color: var(--text-muted); }
+  .bar__label strong { color: var(--text); font-weight: 600; }
+
+  .shell { max-width: 960px; margin: 0 auto; padding: 56px 24px 96px; }
+
+  .doc-head {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-bottom: 36px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  .doc-head__eyebrow {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .doc-head h1 { font-size: clamp(28px, 4.2vw, 38px); font-weight: 700; letter-spacing: -0.01em; }
+  .doc-head__meta { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; color: var(--text-muted); }
+  .doc-head__meta .mono { font-size: 12.5px; }
+  .doc-head__crosslink { font-size: 13.5px; color: var(--text-muted); }
+  .doc-head__crosslink a { text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 1px; }
+
+  .layout { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 48px; align-items: start; }
+  @media (max-width: 760px) {
+    .layout { grid-template-columns: 1fr; gap: 28px; }
+    .toc { position: static !important; }
+  }
+
+  .toc { position: sticky; top: 24px; display: flex; flex-direction: column; gap: 2px; }
+  .toc__title {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .toc a {
+    display: block;
+    padding: 7px 0;
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    padding-left: 10px;
+    margin-left: -1px;
+  }
+  .toc a:hover { color: var(--text); border-left-color: var(--border); }
+  @media (max-width: 760px) {
+    .toc { display: flex; flex-direction: row; flex-wrap: nowrap; overflow-x: auto; gap: 6px; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+    .toc__title { display: none; }
+    .toc a { flex: none; border: 1px solid var(--border); border-radius: 999px; padding: 6px 12px; margin: 0; }
+  }
+
+  .summary {
+    background: var(--accent-soft);
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin-bottom: 44px;
+  }
+  .summary__title {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .summary ul { margin: 0; padding-left: 1.15em; display: flex; flex-direction: column; gap: 7px; }
+  .summary li { font-size: 14.5px; }
+
+  section.clause { margin-bottom: 46px; scroll-margin-top: 24px; }
+  section.clause:last-of-type { margin-bottom: 0; }
+  .clause__head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; }
+  .clause__num { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; color: var(--accent); flex: none; }
+  .clause h2 { font-size: 19px; font-weight: 700; }
+  .clause h3 { font-size: 15.5px; font-weight: 600; margin: 22px 0 10px; }
+  .clause p { margin: 0 0 14px; max-width: 68ch; }
+  .clause p:last-child { margin-bottom: 0; }
+  .clause ul, .clause ol { margin: 0 0 14px; padding-left: 1.3em; max-width: 68ch; display: flex; flex-direction: column; gap: 6px; }
+  .clause ol { padding-left: 1.5em; }
+
+  .datatable { width: 100%; border-collapse: collapse; margin: 4px 0 20px; font-size: 13.5px; }
+  .datatable-wrap { overflow-x: auto; margin-bottom: 20px; }
+  .datatable th, .datatable td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .datatable th {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .datatable td { color: var(--text); }
+  .datatable tr:last-child td { border-bottom: none; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; margin: 4px 0 20px; }
+  .card p { margin: 0; }
+
+  .contact-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .contact-block dt {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-top: 12px;
+  }
+  .contact-block dt:first-child { margin-top: 0; }
+  .contact-block dd { margin: 3px 0 0; font-size: 15px; }
+
+  footer.page-foot { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 12.5px; color: var(--text-muted); }
+</style>
+
+<div class="bar">
+  <span class="bar__dot"></span>
+  <span class="bar__label">GEO-TRACE <strong>// LEGAL</strong></span>
+</div>
+
+<div class="shell">
+  <div class="doc-head">
+    <span class="doc-head__eyebrow">Terms of Service</span>
+    <h1>利用規約</h1>
+    <div class="doc-head__meta">
+      <span class="mono">制定日: 2026年8月31日</span>
+      <span class="mono">version 1.0</span>
+    </div>
+    <div class="doc-head__crosslink">GEO-TRACEの<a href="privacy-policy.html">プライバシーポリシー</a>もあわせてご確認ください。</div>
+  </div>
+
+  <div class="layout">
+    <nav class="toc" aria-label="目次">
+      <span class="toc__title">Index</span>
+      <a href="#c01">§01 総則</a>
+      <a href="#c02">§02 サービス内容</a>
+      <a href="#c03">§03 利用資格</a>
+      <a href="#c04">§04 アカウント</a>
+      <a href="#c05">§05 Pro Pass</a>
+      <a href="#c06">§06 DLC</a>
+      <a href="#c07">§07 GEOポイント</a>
+      <a href="#c08">§08 禁止事項</a>
+      <a href="#c09">§09 知的財産権</a>
+      <a href="#c10">§10 免責事項</a>
+      <a href="#c11">§11 責任の制限</a>
+      <a href="#c12">§12 変更・中断・終了</a>
+      <a href="#c13">§13 準拠法</a>
+      <a href="#c14">§14 お問い合わせ</a>
+      <a href="#c15">§15 改定</a>
+    </nav>
+
+    <main>
+      <div class="summary">
+        <div class="summary__title">要点まとめ（詳細は本文をご確認ください）</div>
+        <ul>
+          <li>本アプリは無料版・Pro Pass（自動更新の定期購読）・DLC（買い切り）の3種類で構成されます。</li>
+          <li>Pro Passは期間終了24時間前までに解約しない限り自動更新されます。解約はApp Store／Google Playの設定から行えます。</li>
+          <li>GEOポイントおよびガレージショップのアイテムはアプリ内でのみ利用できる仮想の要素で、現金や現金同等物への換金はできません。</li>
+          <li>本アプリの内容・提供状況は予告なく変更される場合があります。</li>
+        </ul>
+      </div>
+
+      <section class="clause" id="c01">
+        <div class="clause__head"><span class="clause__num">§01</span><h2>総則</h2></div>
+        <p>本利用規約（以下「本規約」）は、GEO-TRACE開発者（以下「運営者」）が提供するアプリケーション「GEO-TRACE」（以下「本アプリ」）の利用条件を定めるものです。利用者は、本アプリをダウンロードまたは利用することにより、本規約に同意したものとみなします。</p>
+      </section>
+
+      <section class="clause" id="c02">
+        <div class="clause__head"><span class="clause__num">§02</span><h2>サービス内容</h2></div>
+        <p>本アプリは、以下の構成で提供されます。各機能の詳細・提供状況はアプリ内の表示による最新の内容が優先されます。</p>
+        <div class="datatable-wrap">
+          <table class="datatable">
+            <thead><tr><th>区分</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>無料版</td><td>日本地図での訪問記録、基礎クイズ、GEOポイント、ガレージショップ等の基本機能</td></tr>
+              <tr><td>Pro Pass（定期購読）</td><td>広告の完全非表示、GEOポイントの獲得量2倍、および今後提供予定のクラウドバックアップ・復習モード</td></tr>
+              <tr><td>DLC（買い切り）</td><td>地域別マップパック等の追加コンテンツ（提供時期は別途お知らせします）</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>無料版には広告が表示されます。価格は本規約に記載せず、常にApp Store／Google Play上の表示額を正とします。</p>
+      </section>
+
+      <section class="clause" id="c03">
+        <div class="clause__head"><span class="clause__num">§03</span><h2>利用資格</h2></div>
+        <p>利用者は、居住地の法令に基づき本アプリを利用する法的能力を有している必要があります。未成年者が利用する場合は、保護者の同意のもとでご利用ください。</p>
+      </section>
+
+      <section class="clause" id="c04">
+        <div class="clause__head"><span class="clause__num">§04</span><h2>アカウント</h2></div>
+        <p>本アプリは、2026年8月時点でアカウント登録機能を提供していません。訪問記録・メモ・GEOポイント等のデータは、お使いの端末内にのみ保存されます。アカウント登録機能を将来提供する場合は、本規約の改定によりお知らせします。</p>
+      </section>
+
+      <section class="clause" id="c05">
+        <div class="clause__head"><span class="clause__num">§05</span><h2>Pro Pass（定期購読）</h2></div>
+        <p>Pro Passは、月額または年額の定期購読として提供されます。価格・請求周期は、購入手続き画面（App Store／Google Play）に表示される内容が正となります。</p>
+        <ul>
+          <li>定期購読は、現在の請求期間の終了24時間前までに解約しない限り、自動的に更新されます。</li>
+          <li>解約は、App Store／Google Playのアカウント設定から行えます。本アプリ内から直接解約することはできません。</li>
+          <li>お支払い後の返金は、各ストアの返金ポリシーに従います。運営者が直接返金を行うことはできません。</li>
+          <li>無料トライアル等の特典を提供する場合、その適用条件は購入手続き画面の表示によります。</li>
+        </ul>
+      </section>
+
+      <section class="clause" id="c06">
+        <div class="clause__head"><span class="clause__num">§06</span><h2>DLC（買い切りコンテンツ）</h2></div>
+        <p>DLCは、購入時点の内容を一度限り購入する買い切り型のコンテンツです。返金は各ストアの返金ポリシーに従います。</p>
+      </section>
+
+      <section class="clause" id="c07">
+        <div class="clause__head"><span class="clause__num">§07</span><h2>GEOポイント・ガレージショップ</h2></div>
+        <p>GEOポイントおよびガレージショップで交換できるアイテムは、本アプリ内でのみ利用できる仮想の要素であり、金銭的な価値を持ちません。以下の点にご留意ください。</p>
+        <ul>
+          <li>現金または現金同等物への換金・払い戻しはできません。</li>
+          <li>本アプリのアンインストールまたは端末データの削除により失われます。</li>
+          <li>付与量・交換に必要なポイント数・提供アイテムの内容は、予告なく変更される場合があります。</li>
+        </ul>
+      </section>
+
+      <section class="clause" id="c08">
+        <div class="clause__head"><span class="clause__num">§08</span><h2>禁止事項</h2></div>
+        <p>利用者は、本アプリの利用にあたり、以下の行為を行ってはなりません。</p>
+        <ol>
+          <li>本アプリまたはそのデータの逆コンパイル・逆アセンブル・リバースエンジニアリング</li>
+          <li>不正な手段によるGEOポイントの取得・改ざん、または課金を回避する行為</li>
+          <li>本アプリの運営を妨害する行為</li>
+          <li>他の利用者・第三者に迷惑、不利益、または損害を与える行為</li>
+          <li>法令または公序良俗に違反する行為</li>
+          <li>その他、運営者が不適切と判断する行為</li>
+        </ol>
+      </section>
+
+      <section class="clause" id="c09">
+        <div class="clause__head"><span class="clause__num">§09</span><h2>知的財産権</h2></div>
+        <p>本アプリに含まれるテキスト、デザイン、プログラム、データ等の著作権その他の知的財産権は、運営者または正当な権利を有する第三者に帰属します。本規約は、これらの権利の利用者への譲渡またはライセンス許諾を意味するものではありません。</p>
+      </section>
+
+      <section class="clause" id="c10">
+        <div class="clause__head"><span class="clause__num">§10</span><h2>免責事項</h2></div>
+        <p>本アプリで提供する特産品・歴史・祭り等のナレッジカードの内容は、参考情報として提供するものであり、その正確性・完全性・最新性を保証するものではありません。運営者は、本アプリの利用により利用者に生じた損害について、法令上許容される範囲で責任を負いません。</p>
+      </section>
+
+      <section class="clause" id="c11">
+        <div class="clause__head"><span class="clause__num">§11</span><h2>責任の制限</h2></div>
+        <p>運営者が利用者に対して損害賠償責任を負う場合であっても、その責任は、運営者の故意または重過失による場合を除き、当該損害の直接の原因となった月に利用者が実際に運営者に支払った金額を上限とします。</p>
+      </section>
+
+      <section class="clause" id="c12">
+        <div class="clause__head"><span class="clause__num">§12</span><h2>サービスの変更・中断・終了</h2></div>
+        <p>運営者は、利用者への事前の通知なく、本アプリの内容を変更し、または提供を中断・終了することがあります。これにより利用者に生じた損害について、運営者は法令上許容される範囲で責任を負いません。</p>
+      </section>
+
+      <section class="clause" id="c13">
+        <div class="clause__head"><span class="clause__num">§13</span><h2>準拠法</h2></div>
+        <p>本規約の解釈にあたっては、日本法を準拠法とします。本規約に関して紛争が生じた場合、利用者と運営者は誠実に協議のうえ解決を図るものとします。</p>
+      </section>
+
+      <section class="clause" id="c14">
+        <div class="clause__head"><span class="clause__num">§14</span><h2>お問い合わせ</h2></div>
+        <div class="contact-block">
+          <dt>運営者</dt>
+          <dd>GEO-TRACE開発者</dd>
+          <dt>連絡先</dt>
+          <dd><a href="mailto:contact.geotrace@gmail.com">contact.geotrace@gmail.com</a></dd>
+        </div>
+      </section>
+
+      <section class="clause" id="c15">
+        <div class="clause__head"><span class="clause__num">§15</span><h2>本規約の改定</h2></div>
+        <p>運営者は、本規約の内容を随時変更することがあります。変更後の内容は本ページに掲載した時点で効力を生じるものとし、利用者の権利に重要な影響を及ぼす変更を行う場合は、アプリ内での告知等、適切な方法でお知らせします。</p>
+      </section>
+
+      <footer class="page-foot">
+        GEO-TRACE Terms of Service · 制定日 2026年8月31日
+      </footer>
+    </main>
+  </div>
+</div>
