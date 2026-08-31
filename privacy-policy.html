@@ -297,7 +297,7 @@
     <h1>プライバシーポリシー</h1>
     <div class="doc-head__meta">
       <span class="mono">制定日: 2026年8月31日</span>
-      <span class="mono">version 1.0</span>
+      <span class="mono">version 1.1（最終改定: 2026年9月1日）</span>
     </div>
     <div class="doc-head__crosslink">GEO-TRACEの<a href="terms-of-service.html">利用規約</a>もあわせてご確認ください。</div>
   </div>
@@ -323,10 +323,11 @@
       <div class="summary">
         <div class="summary__title">要点まとめ（詳細は本文をご確認ください）</div>
         <ul>
-          <li>訪問記録・メモ・GEOポイント等のデータは、現時点ではすべて<strong>お使いの端末内にのみ</strong>保存され、運営者のサーバーには送信されません。</li>
-          <li>本アプリはアカウント登録を行わないため、メールアドレス等を直接収集することはありません。</li>
+          <li>訪問記録・メモ・GEOポイント等のデータは、基本的に<strong>お使いの端末内にのみ</strong>保存されます。</li>
+          <li>Pro Pass加入者が<strong>任意で</strong>「クラウドバックアップ」機能を利用する場合のみ、メールアドレス（アカウント作成用）と上記のデータがGoogle Firebase（Firestore）に送信されます。利用しない限り送信されません。</li>
           <li>広告表示のため、Google（AdMob）が広告識別子等の情報を収集します。Pro Pass加入者には広告自体が表示されません。</li>
           <li>お支払いはApp Store／Google Playを通じて処理され、カード情報が運営者に渡ることはありません。</li>
+          <li>クラウドバックアップ用のアカウントは、アプリ内からいつでも削除できます。</li>
         </ul>
       </div>
 
@@ -339,7 +340,7 @@
         <div class="clause__head"><span class="clause__num">§02</span><h2>収集する情報</h2></div>
 
         <h3>2.1 端末内に保存される情報</h3>
-        <p>本アプリの利用に伴い、以下の情報がお使いの端末のローカルデータベース内にのみ保存されます。2026年8月時点で、これらの情報が運営者のサーバーへ送信されることはありません。</p>
+        <p>本アプリの利用に伴い、以下の情報がお使いの端末のローカルデータベース内に保存されます。Pro Pass加入者が2.4で述べる「クラウドバックアップ」機能を任意で利用する場合を除き、これらの情報が運営者のサーバーへ送信されることはありません。</p>
         <div class="datatable-wrap">
           <table class="datatable">
             <thead>
@@ -361,6 +362,12 @@
         <h3>2.3 お支払いに関する情報</h3>
         <p>Pro Pass（定期購読）およびDLC（追加コンテンツ）のお支払いは、App Store／Google Playを通じて処理されます。クレジットカード番号等の決済情報を運営者が直接取得・保存することはありません。定期購読の状態管理には RevenueCat, Inc. のサービスを利用しており、匿名の購入者ID・購入レシート情報がRevenueCatに送信されます。</p>
         <p>RevenueCatによる情報の取り扱いについては、<a href="https://www.revenuecat.com/privacy/" target="_blank" rel="noreferrer">RevenueCatのプライバシーポリシー</a>をご確認ください。</p>
+
+        <h3>2.4 クラウドバックアップに関する情報（Pro Pass限定・任意）</h3>
+        <p>Pro Pass加入者は、任意で「クラウドバックアップ」機能を利用できます。この機能を使うには、メールアドレスとパスワードによるアカウント作成（Google Firebase Authentication）が必要です。アカウント作成・サインインの際、メールアドレスがGoogle Firebaseに送信されます。</p>
+        <p>「バックアップする」を操作した場合、2.1で述べた端末内のデータ（訪問記録・訪問記録メモ・GEOポイントの履歴・ガレージショップの所持アイテム）が、Google Cloud Firestore（Google Firebaseのデータベースサービス）に送信・保存されます。この送信は機能を利用しない限り発生せず、無料版・Pro Pass未加入の間は発生しません。</p>
+        <p>保存されたデータは本人（同じアカウントでサインインした端末）のみがアクセスできるようアクセス制御しています。アプリ内の「アカウントを削除する」操作により、Firebase上のアカウントとバックアップデータの両方をいつでも完全に削除できます。</p>
+        <p>Googleによる情報の取り扱いについては、<a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Googleのプライバシーポリシー</a>および<a href="https://firebase.google.com/support/privacy" target="_blank" rel="noreferrer">Firebaseのプライバシーとセキュリティ</a>をご確認ください。</p>
       </section>
 
       <section class="clause" id="c03">
@@ -386,12 +393,12 @@
 
       <section class="clause" id="c06">
         <div class="clause__head"><span class="clause__num">§06</span><h2>データの保存期間・削除</h2></div>
-        <p>端末内に保存されたデータは、本アプリのアンインストール、または端末設定からのアプリデータ削除により消去されます。2026年8月時点で、運営者のサーバー上に保存されている個人データはありません。</p>
+        <p>端末内に保存されたデータは、本アプリのアンインストール、または端末設定からのアプリデータ削除により消去されます。クラウドバックアップ機能（§2.4）を利用した場合にGoogle Firebase上へ保存されるデータは、アプリ内の「アカウントを削除する」操作によりいつでも完全に削除できます。</p>
       </section>
 
       <section class="clause" id="c07">
         <div class="clause__head"><span class="clause__num">§07</span><h2>将来提供予定の機能</h2></div>
-        <p>Pro Pass向けに、訪問記録・メモをクラウド上にバックアップする機能を将来提供予定です。この機能の提供開始にあわせて、新たに収集する情報の範囲・保存場所・保持期間を含め本ポリシーを改定し、アプリ内でお知らせします。本機能は2026年8月時点では提供していません。</p>
+        <p>Pro Pass向けに、間違えたクイズの問題を復習できる機能を将来提供予定です。この機能の提供開始にあわせて、新たに収集する情報がある場合は本ポリシーを改定し、アプリ内でお知らせします（訪問データのクラウドバックアップは2026年9月1日より提供開始済みです。詳細は§2.4をご確認ください）。</p>
       </section>
 
       <section class="clause" id="c08">
@@ -401,7 +408,7 @@
 
       <section class="clause" id="c09">
         <div class="clause__head"><span class="clause__num">§09</span><h2>ユーザーの権利</h2></div>
-        <p>ご自身に関する情報の確認・削除等をご希望の場合は、下記の連絡先までお問い合わせください。本アプリのデータの多くは端末内にのみ保存されているため、多くの場合はアプリ内の操作またはアンインストールによって対応いただけます。</p>
+        <p>ご自身に関する情報の確認・削除等をご希望の場合は、下記の連絡先までお問い合わせください。本アプリのデータの多くは端末内にのみ保存されているため、多くの場合はアプリ内の操作またはアンインストールによって対応いただけます。クラウドバックアップ機能（§2.4）をご利用の場合は、アプリ内の「アカウントを削除する」操作によりご自身でいつでもFirebase上のデータを削除いただけます。</p>
       </section>
 
       <section class="clause" id="c10">
@@ -425,7 +432,7 @@
       </section>
 
       <footer class="page-foot">
-        GEO-TRACE Privacy Policy · 制定日 2026年8月31日
+        GEO-TRACE Privacy Policy · 制定日 2026年8月31日（最終改定 2026年9月1日）
       </footer>
     </main>
   </div>
